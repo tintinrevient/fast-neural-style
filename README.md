@@ -89,7 +89,7 @@ luarocks install cudnn
 ```
 
 ### Pretrained Models
-Download all pretrained style transfer models by running the script
+Download all pretrained style transfer models by running the script <- cannot download, need to run manually!
 
 ```bash
 bash models/download_style_transfer_models.sh
@@ -158,6 +158,14 @@ th fast_neural_style.lua \
   -input_image images/content/chicago.jpg \
   -output_image out.png
 ```
+
+Each style needs to be trained separately: one style -> one model!
+```bash
+th fast_neural_style.lua -model models/eccv16/starry_night.t7 -input_image images/content/caravaggio_sketch.jpg -output_image images/outputs/eccv16/caravaggio_starry_night.png
+
+th fast_neural_style.lua -model models/instance_norm/the_scream.t7 -input_image images/content/caravaggio_sketch.jpg -output_image images/outputs/instance_norm/caravaggio_the_scream.png
+```
+
 
 You can run the same model on an entire directory of images like this:
 
